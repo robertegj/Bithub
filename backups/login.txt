@@ -1,0 +1,68 @@
+<div style="text-align:center;"><mark>
+<?php
+	//error_reporting(E_ALL);
+	//ini_set('display_errors', 1);
+	session_start();
+	include("logins.php");
+	if(isset($_POST["login"])){
+		$usr = $_POST["username"];
+		$usr = filter_var($usr, FILTER_SANITIZE_STRING);
+		$pass = $_POST["password"];
+		$pass = filter_var($pass, FILTER_SANITIZE_STRING);
+		if($$usr == $pass) {
+			echo "welcome " . "$usr";
+			$_SESSION['usr'] = $usr;
+		} else {
+			echo "login failed";
+		}
+	}
+	if(isset($_POST["register"])){
+		$usr = $_POST["username"];
+		$usr = filter_var($usr, FILTER_SANITIZE_STRING);
+		$pass = $_POST["password"];
+		$pass = filter_var($pass, FILTER_SANITIZE_STRING);
+		if(!isset($$usr)){
+			$loginkey = "$" . $usr . "=" . "'" . $pass . "'" . ";\n";
+			file_put_contents('logins.php', $loginkey, FILE_APPEND);
+			echo "welcome, " . $usr;
+			$_SESSION['usr'] = $usr;
+		} else {
+			echo "username in use";
+		}
+	}
+	if(!isset($_POST["login"]) && !isset($_POST["register"])){
+		echo "awaiting user input";
+	}
+?>
+</mark></div>
+
+<style>
+#welcomeForm {
+	border:1px solid black;
+	width:70vw;
+	font-size:2em;
+	margin-left: 15vw;
+}
+form {
+	margin: 0;
+}
+input {
+	height: 20vh;
+	width: 50vw;
+	font-size:3em;
+}
+mark {
+	font-size:3em;
+}
+</style>
+
+<div id="welcomeForm">
+	<form action="" method="post"> 
+		<input type="text" name="username" required autofocus> name <br>
+		<input type="password" name="password" required> pass <br>
+		<input type="submit" name="login" value="login"> login <br>
+		<input type="submit" name="register" value="register"> register
+	</form>
+</div>
+<a href="../../"><button>home</button></a><br>
+<a href="logoff.php"><button>logoff</button></a>

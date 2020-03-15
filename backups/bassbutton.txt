@@ -1,0 +1,57 @@
+<?php
+file_put_contents('../../iplolg', date("d/m/Y") . '  ' . $_SERVER['HTTP_X_FORWARDED_FOR'] . '  ' . $_SERVER['HTTP_REFERER'] . "\n", FILE_APPEND);
+?>
+<title>bass button</title>
+<h1> press spacebar to bassbar - if broke refresh</h1>
+<!-- im good html programmer -->
+<style>
+#pre, #un {
+  text-align: center;
+  width:100%}
+html {overflow:hidden;}
+</style>
+<audio id="audio" preload="auto" style="display:none">
+  <source src="dab.m4a" type="audio/mpeg"> Your browser succ
+</audio>
+<img src="velm.PNG" id="velma" style="display:none;position:absolute;bottom:0;right:0;"/>
+<img src="UNPRESSD.png" id="un" style="display:block;"/>
+<img src="PRESSD.png" id="pre" style="display:none;"/> 
+<script>
+  var down = false;
+  document.addEventListener('keydown', function(e) {
+    if(down) return;
+    down = true;
+    if (e.keyCode == 32) {
+      document.getElementById('audio').play();
+     var e = document.getElementById('un');
+         e.style.display = ((e.style.display != 'none') ? 'none' : 'block');
+     var v = document.getElementById('velma');
+            v.style.display = ((v.style.display != 'none') ? 'none' : 'block');
+     var f = document.getElementById('pre');
+            f.style.display = ((e.style.display != 'none') ? 'none' : 'block');
+            console.log("basscannon");
+    }
+      }, false);
+    document.addEventListener('keyup', function(e) {
+      if (e.keyCode == 32) {
+        down = false;
+        document.getElementById('audio').pause();
+       var e = document.getElementById('un');
+           e.style.display = ((e.style.display != 'none') ? 'none' : 'block');
+       var f = document.getElementById('pre');
+              f.style.display = ((e.style.display != 'none') ? 'none' : 'block');
+     var v = document.getElementById('velma');
+            v.style.display = ((v.style.display != 'none') ? 'none' : 'block');
+
+      }
+  }, false);
+
+if(localStorage['theme'] = "bonokai") {
+  document.body.style.backgroundColor = "#1b1b1b";
+  document.body.style.color = "#000";
+  var h1Z = document.querySelectorAll("a,p,h1,h2,h3,form");
+  for(var r = 0; r < h1Z.length; r++) {
+    h1Z[r].style.color = "#fff";
+  }
+}
+</script>

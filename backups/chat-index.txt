@@ -1,0 +1,122 @@
+<?php
+// You'd put this code at the top of any "protected" page you create
+
+// Always start this first
+session_start();
+
+if (isset( $_SESSION['usr'])){
+    // Grab user data from the database using the user_id
+    // Let them access the "logged in only" pages
+} else {
+    // Redirect them to the login page
+    header("Location: ../../");
+}
+?>
+<html>
+<head>
+    <title>RobertLabs &mdash; TEST!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="description" content="Testing, testing, 1 2 3! Is this thing on?"/>
+    <style type="text/css">
+    	html {height: 100vh;}
+        body {font-size:10px; color:#777777; font-family:arial; text-align:center;}
+        h1 {font-size:64px; color:#555555; margin: 70px 0 50px 0;}
+        p {width:320px; text-align:center; margin-left:auto;margin-right:auto; margin-top: 30px }
+        div {width:320px; text-align:center; margin-left:auto;margin-right:auto;}
+        a:link {color: #34536A;}
+        a:visited {color: #34536A;}
+        a:active {color: #34536A;}
+        a:hover {color: #34536A;}
+		butty {border: solid 2px lightblue;padding:3vw;display:block;font-size:5em;}
+		footer {position:absolute;bottom:0;width:100%;}
+		textarea {background-color: #1b1b1b;color:white;}
+    </style>
+</head>
+		
+		<body>
+			<?php 
+				error_reporting(E_ALL);
+				ini_set('display_errors', 1);
+				if(isset($_POST['chat_send']))
+				{
+				 $chat_location="chatlog.txt";
+				 $current_chat = file_get_contents("chatlog.txt");
+				 $chat_input=$_POST['chat_input'];
+				 $chat_combine = $current_chat . $_SESSION['usr'] . " " . date('n-j g:i:s > ') .$chat_input . "\n";
+				 $new_chat = fopen($chat_location, 'w');
+				 fwrite($new_chat, $chat_combine);
+				 fclose($new_chat);
+				 header('Location: index.php');
+				}
+				if(isset($_POST['chat_clear']))
+				{
+				 $chat_location="chatlog.txt";
+				 $new_chat = fopen($chat_location, 'w');
+				 fwrite($new_chat, "Let's chat! \n");
+				 fclose($new_chat);
+				 header('Location: index.php');
+				}
+				if(isset($_POST['chat_backup']))
+				{
+				$chat_bkp_name = '../bithub/files/chat-backup-' . date('n-jg:i:s') . '.txt';
+				copy('chatlog.txt', $chat_bkp_name);
+				}
+				if(isset($_POST['errthang_backup']))
+				{
+				$index = '../bithub/' . 'index.php';
+				copy($index, "../bithub/backups/bithub-index.txt");
+				$index = '../chat/' . 'index.php';
+				copy($index, "../bithub/backups/chat-index.txt");
+				$index = '../browsercookie/' . 'index.php';
+				copy($index, "../bithub/backups/browsercookie-index.txt");
+				$index = '../who-loo/' . 'index.php';
+				copy($index, "../bithub/backups/who-loo-index.txt");
+				$index = '../youtube-dl/' . 'index.php';
+				copy($index, "../bithub/backups/youtube-dl-index.txt");
+				}
+			?>
+	
+			<textarea id="boxtext" style="width:70vw;height:70vh;font-size:2em;">
+				<?php 
+					echo file_get_contents("chatlog.txt");
+				?>
+			</textarea>
+			<br>
+			<form action="index.php" method="post" id="chat_form">
+				<input type="text" name="chat_input"  autofocus="autofocus" autocomplete="off">
+				<input id="ac-button" type="submit" value="say" name="chat_send">
+			</form>
+			
+			<form action="" method="post" enctype="multipart/form-data">
+			<input type="file" id="file" name="files[]" multiple="multiple" accept="*" />
+			<input id="ac-button" type="submit" value="Upload" />
+			</form>
+			
+			<form action="" method="post" id="chat_clear_button">
+				<input id="ac-button" type="submit" value="clear chat" name="chat_clear">
+			</form>
+
+			<form action="" method="post" id="chat_backup_button">
+				<input id="ac-button" type="submit" value="backup chat" name="chat_backup">
+			</form>
+			
+			<form action="" method="post" id="errthang_backup_button">
+				<input id="ac-button" type="submit" value="backup thangs" name="errthang_backup">
+			</form>
+			
+			<a href="index.php"><button id="ac-button">refresh</button></a>
+			<a href="../../"><button id="ac-button">home</button></a>
+			<br>
+		
+    <footer style="position:absolute;bottom:0;right:1;width:25%;">
+	<form id="themeselector">
+	  <input type="radio" id="clara" name="theme" value="clara"> light
+	  <input type="radio" id="darko" name="theme" value="darko"> dark
+	  <input type="radio" id="peachy" name="theme" value="peachy"> peachy<br>
+	</form>
+    </footer>
+	<script src="../../bknd/themer.js"></script>
+</body>
+</html>
+
+

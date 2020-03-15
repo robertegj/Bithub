@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>browsercookie</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta charset="UTF-8">
+		<style>html {width:100%;height:100%;} body, textarea, button{width:99%;text-align:center;font-size:1.3em;}button{width:60vw;}</style>
+	</head>
+	<body>
+		<textarea id="textbox" style="height:75vh;min-width:25vw;background-color:#444444;color:white;"></textarea>
+		<br>
+		<br><button id="save-button" onmouseover="this.style.color='blue', this.style.backgroundColor='white'"; onmouseout="this.style.color='white', this.style.backgroundColor='rgba(0,0,0,0.1)'";>save</button>
+		<script>
+			document.getElementById('save-button').onclick = function() {
+				// save values into localStorage
+				localStorage['browsercookie'] = document.getElementById('textbox').value;
+				document.getElementById("save-button").innerHTML = "saved!";
+				alert("memo saved!");
+				location.reload();
+			};
+			// load textboxes from localStorage (can be on another page)
+			document.getElementById('textbox').value = localStorage['browsercookie'] || "";
+		</script>
+		<br>
+	<footer style="flex:1;width:100%;">
+		<br>
+		<a href="../../"><button>home</button></a>
+	<form id="themeselector">
+	  <input type="radio" id="clara" name="theme" value="clara"> light
+	  <input type="radio" id="darko" name="theme" value="darko"> dark
+	  <input type="radio" id="peachy" name="theme" value="peachy"> peachy <br>
+	</form>
+    </footer>
+	<script src="../../bknd/themer.js"></script>
+	</body>
+</html>

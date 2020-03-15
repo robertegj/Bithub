@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="description" content="my landing page">
+  <meta name="keywords" content="landing, page">
+  <meta name="author" content="Rob Doe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>landed, you have</title>
+  <style>
+	html {height:100%, width:100%;}
+	body {
+		height: 100%;
+		margin: 0;
+		text-align: center;
+		margin: auto;
+		background-color: #cfcccc;
+		background-image: url("blossom.png");
+		background-repeat: no-repeat;
+		background-position: bottom left;
+		background-attachment: fixed;
+	}
+	footer {
+		position: absolute;
+		top: 20vh;
+		width: 100%;
+	}
+	h1 {
+	    color: pink;
+	}
+	h2 {
+	    text-shadow: 1px 1px #666;
+	}
+	h1:hover, h2:hover {
+		color: #ddd;
+		text-shadow: 1px 2px 1px #444;
+	}
+	a:link {
+	    color: purple;
+	    text-decoration: none;
+	}
+	a:hover {
+	    border-bottom: 1px dashed purple;
+	}
+	.box {
+		display: inline-block;
+		width: 25vw;
+		height: 30vh;
+		margin: 1em;
+		background-color: pink;
+		color: #444;
+		margin-top: 22vh;
+		font-size: 3vh;
+		/*animation: float 5s infinite;*/
+		box-shadow: 12px 8px 8px 0 #444, 0 6px 20px 0 #111;
+		overflow: hidden;
+		filter: blur(0px);
+	}
+	#uberbox {
+		width: 99vw;
+		height: 50vh;
+	}
+	ul {
+		list-style-position: inside;
+		list-style: none;
+		padding: 0;
+	}
+	li {
+		list-style-position: inside;
+		line-height: 1.5;
+	}
+	input {
+	   box-shadow: 0 4px 8px 0 #444, 0 6px 20px 0 #111;
+	}
+	.fillR {
+	  border: none transparent;
+      background: transparent;
+	  outline: none;
+	  box-shadow: none;
+	  font-size: 2em;
+	}
+	@keyframes float {
+		0% {box-shadow: 0 4px 8px 0 #444, 0 6px 20px 0 #111;}
+		50% {box-shadow: 0 8px 16px 0 #444, 12px 12px 40px 12px #111;}
+		100% {box-shadow: 0 4px 8px 0 #444, 0 6px 20px 0 #111;}
+	}
+	@media only screen and (max-width: 600px) {
+		footer {
+		  bottom: 50vh;
+		}
+		body {
+		  overflow: auto;
+		}
+		.box {
+			margin: 1vh;
+			margin-top: 10vh;
+		}
+	}
+  </style>
+ </head>
+
+<body>
+<footer><p><form action="https://www.duckduckgo.com/" class="searchform" method="get" name="searchform">
+<input style="height:3vh;font-size:3vh;" autofocus="autofocus" autocomplete="on" class="form-control search" name="q" placeholder=". . ." required="required"  type="text">
+</form></p>
+</footer>
+  <h1 onclick="shuffleTheme()" id="bot-greet">memes</h1>
+  <h1 onclick="location.reload()" id="mandarin-lesson">
+	<?php
+		$input = array("一 (yī) one", "人 (rén) man", "日 (rì) sun", "月 (yuè) moon", "山 (shān) mountain", "水 (shǔi) water", "大 (dà) big", "小 (xiǎo) small", "口 (kǒu) mouth", "火 (hǔo) fire", "男 (nán) boy", "女 (nǚ) girl", "天 (tiān) sky", "牛 (níu) cow", "马 (mǎ) horse", "羊 (yáng) sheep", "木 (mù)  wood", "工 (gōng) work", "开 (kāi) open", "心 (xīn)  heart", "门 (mén) door", "不 (bù) no", "十 (shí) ten", "手 (shǒu) hand", "王 (wáng) king", "米 (mǐ) rice", "生 (shēng) birth", "中 (zhōng) center", "上 (shàng) up", "下 (xià) down", "(zhèng què) 正确 yes", "(cuò wù) 错误 no");
+		$rand_keys = array_rand($input, 2);
+		echo $input[$rand_keys[0]] . "\n";
+		/* echo $input[$rand_keys[1]] . "\n"; */
+	?>
+	</h1>
+   <h1 onclick="location.reload()" id="spanish-lesson">
+	<?php
+		$input = array("一 (yī) one", "人 (rén) man", "日 (rì) sun", "月 (yuè) moon", "山 (shān) mountain", "水 (shǔi) water", "大 (dà) big", "小 (xiǎo) small", "口 (kǒu) mouth", "火 (hǔo) fire", "男 (nán) boy", "女 (nǚ) girl", "天 (tiān) sky", "牛 (níu) cow", "马 (mǎ) horse", "羊 (yáng) sheep", "木 (mù)  wood", "工 (gōng) work", "开 (kāi) open", "心 (xīn)  heart", "门 (mén) door", "不 (bù) no", "十 (shí) ten", "手 (shǒu) hand", "王 (wáng) king", "米 (mǐ) rice", "生 (shēng) birth", "中 (zhōng) center", "上 (shàng) up", "下 (xià) down", "(zhèng què) 正确 yes", "(cuò wù) 错误 no");
+		$rand_keys = array_rand($input, 2);
+		echo $input[$rand_keys[0]] . "\n";
+		/* echo $input[$rand_keys[1]] . "\n"; */
+	?>
+	</h1>
+	<h1 onclick="location.reload()" id="french-lesson">
+	<?php
+		$input = array("oui yes", "bon good", "chat cat", "naw lmao");
+		$rand_keys = array_rand($input, 2);
+		echo $input[$rand_keys[0]] . "\n";
+		/* echo $input[$rand_keys[1]] . "\n"; */
+	?>
+	</h1>
+  <div id="uberbox">
+	  <div class="box"  onmouseover="this.style.height='50vh'; " onmouseout="this.style.height='30vh'">
+		<input class="fillR" type="text">
+	  </div>
+  </div>
+ </body>
+  <script> // greets you based on the time, sets day and night theme
+  const browsertime = new Date(),
+  currenthour = browsertime.getHours();
+  if (currenthour < 5) {
+  document.body.style.backgroundColor = "#1b1b1b";
+  document.getElementById("bot-greet").innerHTML = "G'd e'v'";
+  console.log("Good Evening...");
+  }
+  if (currenthour >= 5 && currenthour < 12) {
+  document.body.style.backgroundColor = "white";
+  document.getElementById("bot-greet").innerHTML = "G'd morn'ng";
+  console.log("Good Morning...");
+  }
+  if (currenthour >= 12 && currenthour <= 18) {
+  document.body.style.backgroundColor = "white";
+  document.getElementById("bot-greet").innerHTML = "G'd a'ft'rnoon";
+  console.log("Good Afternoon...");
+  }
+  if (currenthour > 18) {
+  document.body.style.backgroundColor = "#1b1b1b";
+  document.getElementById("bot-greet").innerHTML = "G'd e'v'";
+  console.log("Good Evening...");
+  }
+ </script>
+ <script>
+ var themeNum = localStorage["languageTheme"];
+ console.log(themeNum);
+ function showip() {
+	 x = "<?php echo $_SERVER["HTTP_X_REAL_IP"]; ?>";
+	 alert(x);
+ }
+ function shuffleTheme() {
+	 if (themeNum < 3) {                          // rotate that theme dawg
+		themeNum = parseInt(themeNum) + 1;
+		localStorage["languageTheme"] = themeNum; // console.log("we add");
+	 } else {
+		themeNum = 1;
+		localStorage["languageTheme"] = themeNum; // console.log("it was bigger than 3??");
+	 } 
+	 location.reload();
+ }
+ if (themeNum == 1) {
+	 console.log("mi hao");
+	 document.getElementById("french-lesson").style.display = "none";
+	 document.getElementById("spanish-lesson").style.display = "none";
+	 }
+if (themeNum == 2) {
+	 console.log("hablas espanol");
+	 document.body.style.backgroundColor = "green";
+	 document.body.style.color = ""
+	 var all = document.getElementsByClassName('box');
+	 for (var i = 0; i < all.length; i++) {
+		all[i].style.backgroundColor= "red";
+		all[i].style.color= "yellow"; 		
+	 }
+	 var all = document.getElementsByTagName('a');
+	 for (var i = 0; i < all.length; i++) {
+		all[i].style.color= "yellow"; 		
+	 }
+	 var all = document.getElementsByTagName('h1');
+	 for (var i = 0; i < all.length; i++) {
+		all[i].style.color= "yellow"; 		
+	 }
+	 document.getElementById("french-lesson").style.display = "none";
+	 document.getElementById("mandarin-lesson").style.display = "none";
+	 document.body.style.backgroundImage = "url('cacti.png')";
+	 
+	 }
+if (themeNum == 3) {
+	 console.log("parle francais");
+	 document.body.style.color = "green";
+	 document.body.style.backgroundColor = "blue";
+	 var all = document.getElementsByClassName('box');
+	 for (var i = 0; i < all.length; i++) {
+		all[i].style.backgroundColor= "red";
+		all[i].style.color= "white"; 		
+	 }
+	 var all = document.getElementsByTagName('a');
+	 for (var i = 0; i < all.length; i++) {
+		all[i].style.color= "white"; 		
+	 }
+	 document.getElementById("mandarin-lesson").style.display = "none";
+	 document.getElementById("spanish-lesson").style.display = "none";
+	 }
+ </script>
+ <script> // growing tree
+	const nowtime = new Date(),
+	treetime = nowtime.getHours();
+	branchtime = nowtime.getMinutes() / 100;
+	reallytreetime = treetime + branchtime * 2 + "vw";
+	document.body.style.backgroundSize = reallytreetime;
+	console.log("Your tree is growing. It's currently " + reallytreetime);
+  </script>
+</html>
